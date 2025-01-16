@@ -28,7 +28,9 @@ setup(
     package_data={"": extra_files},
     install_requires=requirements,
     entry_points={
-        "console_scripts": ["cpeguess = cpeguess.__init__:run"],
+        "console_scripts": [
+            "cpeguess = cpeguess.__init__:run",
+            "cpeguess_cli = cpeguess.cpeguess_cli:manager",],
     },
     python_requires='>=3.12',
 )

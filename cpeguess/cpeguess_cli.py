@@ -20,11 +20,12 @@ def manager():
 
 
 @manager.command()
-@click.option('-n', '--name', required=True, type=str, show_default=True, help='Product to find')
+@click.option('-p', '--product', required=True, type=str, show_default=True, help='Product to find')
+@click.option('-V', '--vendor', default="", type=str, show_default=True, help='Vendor to find')
 @click.option('-v', '--version', required=True, type=str, show_default=True, help='Version to find')
-def search(name: str, version: int):
+def search(product: str, vendor: str, version: int):
     """This command searches cpe by name and version"""
-    result = CPEGuess.search(name=name, version=version, format="dict")
+    result = CPEGuess.search(product=product, vendor=vendor, version=version, format="string")
     print(json.dumps(result, indent=4))
 
 
